@@ -1,4 +1,4 @@
-// Go Class: 23 CSP, Goroutines, and Channels:
+// Go Class: 23 CSP, Goroutines and Channels:
 // https://youtu.be/zJd7Dvg3XCk?t=500
 // very simialar to http://www.gopl.io/ch1.pdf , 1.6 Fetching URLs Concurrently
 
@@ -33,7 +33,7 @@ func main() {
 	list := []string{
 		"https://amazon.com",
 		"https://www.aliexpress.com",
-		"https://srv-trade.ru",
+		"https://vshkole5.ru",
 		"https://uber4free.ru",
 		"https://wsj.com",
 	}
