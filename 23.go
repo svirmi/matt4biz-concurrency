@@ -30,6 +30,9 @@ func get(url string, ch chan<- result) {
 
 func main() {
 	results := make(chan result)
+
+	defer close(results)
+
 	list := []string{
 		"https://amazon.com",
 		"https://www.aliexpress.com",

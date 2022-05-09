@@ -1,7 +1,7 @@
 // Go Class: 25 Context
 // https://youtu.be/0x_oUlxzw5A?t=575
 
-package context
+package main
 
 import (
 	"context"
