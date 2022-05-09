@@ -7,6 +7,7 @@ import (
 	"context"
 	"log"
 	"net/http"
+	"runtime"
 	"time"
 )
 
@@ -32,9 +33,9 @@ func get(ctx context.Context, url string, ch chan<- result) {
 
 func main() {
 
-	for i := 1; i < 22; i++ {
+	for i := 0; i < 10; i++ {
 
-		ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)
+		ctx, cancel := context.WithTimeout(context.Background(), 4*time.Second)
 
 		defer cancel()
 
@@ -49,6 +50,8 @@ func main() {
 
 		results := make(chan result, len(list))
 
+		defer close(results)
+
 		for _, url := range list {
 			go get(ctx, url, results)
 		}
@@ -62,5 +65,9 @@ func main() {
 				log.Printf("%-20s %s\n", r.url, r.latency)
 			}
 		}
+
+		log.Println(i)
 	}
+
+	log.Println(runtime.NumGoroutine(), " gouroutines still running")
 }
